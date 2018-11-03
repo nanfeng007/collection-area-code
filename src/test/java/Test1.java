@@ -1,3 +1,4 @@
+import com.scj.xingzhengquyu.dao.WriteSQL;
 import com.scj.xingzhengquyu.eg.ReadCodeFromWeb;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -13,7 +14,9 @@ import org.apache.http.util.EntityUtils;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Test1 {
     @Test
@@ -78,6 +81,15 @@ public class Test1 {
         List<Cookie> cookies = cookiestore.getCookies();
         System.out.println(cookies);
 
+    }
+
+    @Test
+    public void tesfadfsadf(){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("area_code","6101041995");
+        map.put("area_name","西安市");
+        boolean write = WriteSQL.Write(map);
+        System.out.println(write);
     }
 
 

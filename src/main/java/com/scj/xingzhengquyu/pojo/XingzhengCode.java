@@ -3,44 +3,44 @@ package com.scj.xingzhengquyu.pojo;
 import java.util.Date;
 
 public class XingzhengCode {
-    public int id; //主键，可以不new
-    public int areaCode;//区域编码（例如：110000
-    public String areaName;//区域名称（例如：北京市）
-    public String pinYin;//拼音 （例如：beijing）
-    public String jianPin;//简拼（bj）
-    public int level;//区域级别（省、直辖市-1、地级市-2、县区-3、街道、乡、镇-4）
-    public int parentId;//上级区域ID
-    public int status;//自定义状态（未定义-0、启用-1、停用-2）
-    public Date createDate;//创建时间
-    public Date modifyDate;//修改时间
-    public String lng;//经度
-    public String lat;//纬度
+    //主键
+    public int id;
+    //区域编码（例如：110000
+    public String regionCode;
+    //区域名称（例如：北京市）
+    public String regionName;
+    //区域级别（省、直辖市-1、地级市-2、县区-3、街道、乡、镇-4）
+    public int regionLevel;
+    //上级区域ID
+    public int parentId;
+    //拼音 （例如：beijing）
+    public String pinYin;
+    //简拼（例如：bj）
+    public String jianPin;
+    //自定义状态（未定义-0、启用-1、停用-2）
+    public int status;
+    //坐标
+    public Position position;
+    //创建时间
+    public Date createDate;
+    //修改时间
+    public Date modifyDate;
 
     public XingzhengCode() {
     }
 
-    public XingzhengCode(int areaCode, String areaName, int level, int status, Date createDate, Date modifyDate) {
-        this.areaCode = areaCode;
-        this.areaName = areaName;
-        this.level = level;
-        this.status = status;
-        this.createDate = createDate;
-        this.modifyDate = modifyDate;
-    }
-
-    public XingzhengCode(int id, int areaCode, String areaName, String pinYin, String jianPin, int level, int parentId, int status, Date createDate, Date modifyDate, String lng, String lat) {
+    public XingzhengCode(int id, String regionCode, String regionName, int regionLevel, int parentId, String pinYin, String jianPin, int status, Position position, Date createDate, Date modifyDate) {
         this.id = id;
-        this.areaCode = areaCode;
-        this.areaName = areaName;
+        this.regionCode = regionCode;
+        this.regionName = regionName;
+        this.regionLevel = regionLevel;
+        this.parentId = parentId;
         this.pinYin = pinYin;
         this.jianPin = jianPin;
-        this.level = level;
-        this.parentId = parentId;
         this.status = status;
+        this.position = position;
         this.createDate = createDate;
         this.modifyDate = modifyDate;
-        this.lng = lng;
-        this.lat = lat;
     }
 
     public int getId() {
@@ -51,20 +51,36 @@ public class XingzhengCode {
         this.id = id;
     }
 
-    public int getAreaCode() {
-        return areaCode;
+    public String getRegionCode() {
+        return regionCode;
     }
 
-    public void setAreaCode(int areaCode) {
-        this.areaCode = areaCode;
+    public void setRegionCode(String regionCode) {
+        this.regionCode = regionCode;
     }
 
-    public String getAreaName() {
-        return areaName;
+    public String getRegionName() {
+        return regionName;
     }
 
-    public void setAreaName(String areaName) {
-        this.areaName = areaName;
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
+    }
+
+    public int getRegionLevel() {
+        return regionLevel;
+    }
+
+    public void setRegionLevel(int regionLevel) {
+        this.regionLevel = regionLevel;
+    }
+
+    public int getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 
     public String getPinYin() {
@@ -83,28 +99,20 @@ public class XingzhengCode {
         this.jianPin = jianPin;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public int getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(int parentId) {
-        this.parentId = parentId;
-    }
-
     public int getStatus() {
         return status;
     }
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     public Date getCreateDate() {
@@ -123,38 +131,20 @@ public class XingzhengCode {
         this.modifyDate = modifyDate;
     }
 
-    public String getLng() {
-        return lng;
-    }
-
-    public void setLng(String lng) {
-        this.lng = lng;
-    }
-
-    public String getLat() {
-        return lat;
-    }
-
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
-
     @Override
     public String toString() {
         return "XingzhengCode{" +
                 "id=" + id +
-                ", areaCode=" + areaCode +
-                ", areaName='" + areaName + '\'' +
+                ", regionCode='" + regionCode + '\'' +
+                ", regionName='" + regionName + '\'' +
+                ", regionLevel=" + regionLevel +
+                ", parentId=" + parentId +
                 ", pinYin='" + pinYin + '\'' +
                 ", jianPin='" + jianPin + '\'' +
-                ", level=" + level +
-                ", parentId=" + parentId +
                 ", status=" + status +
+                ", position=" + position +
                 ", createDate=" + createDate +
                 ", modifyDate=" + modifyDate +
-                ", lng='" + lng + '\'' +
-                ", lat='" + lat + '\'' +
                 '}';
     }
-
 }

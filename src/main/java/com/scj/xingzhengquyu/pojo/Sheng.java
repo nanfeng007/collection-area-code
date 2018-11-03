@@ -1,6 +1,6 @@
 package com.scj.xingzhengquyu.pojo;
 
-public class Sheng {
+public class Sheng extends XingzhengCode{
     public String code;
     public String url;
     public String name;
