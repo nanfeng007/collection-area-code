@@ -29,6 +29,11 @@ public class XingzhengCode {
     public XingzhengCode() {
     }
 
+    public XingzhengCode(String regionCode, String regionName) {
+        this.regionCode = regionCode;
+        this.regionName = regionName;
+    }
+
     public XingzhengCode(int id, String regionCode, String regionName, int regionLevel, int parentId, String pinYin, String jianPin, int status, Position position, Date createDate, Date modifyDate) {
         this.id = id;
         this.regionCode = regionCode;

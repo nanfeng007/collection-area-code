@@ -34,16 +34,35 @@ public class PingYinOtion {
     }
 
     /**
-     * 去除后缀名，如：省、市、区、镇
+     * 去除后缀名，如：省、市、区、镇、自治区
      * 目前仅可以删除最后一位
      *
      * @param s
      * @return
      */
-    private static String deleteLastChar(String s) {
+    public static String deleteLastChar(String s) {
+        if ( s.endsWith("自治区")){
+            String ss=  s.replace("自治区", "");
+            return ss;
+
+        }
+        if ( s.endsWith("自治州")){
+            String ss=  s.replace("自治州", "");
+            return ss;
+
+        }
+
+
+        if ( s.endsWith("管委会")){
+            String ss=  s.replace("管委会", "");
+            return ss;
+
+        }
+        if (s.length()==1){
+            return s;
+        }
 
         String substring = s.substring(0, s.length() - 1);
-
         return substring;
     }
 

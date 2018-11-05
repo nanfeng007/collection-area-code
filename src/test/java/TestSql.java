@@ -1,10 +1,9 @@
 import com.mysql.jdbc.Driver;
+import com.scj.xingzhengquyu.pojo.XingzhengCode;
 import org.junit.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.Date;
 
 public class TestSql {
     @Test
@@ -32,6 +31,18 @@ public class TestSql {
         }
 
 
+
+    }
+
+
+    @Test
+    public void testwe(){
+        Date date = new Date();
+        Timestamp timeStamep = new Timestamp(date.getTime());
+        System.out.println(timeStamep);
+        XingzhengCode xingzhengCode = new XingzhengCode();
+        xingzhengCode.setCreateDate(timeStamep);
+        System.out.println(xingzhengCode.getCreateDate());
 
     }
 }
