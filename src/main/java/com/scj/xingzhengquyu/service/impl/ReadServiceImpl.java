@@ -6,8 +6,6 @@ import com.scj.xingzhengquyu.dao.WriteSQL;
 import com.scj.xingzhengquyu.pojo.XingzhengCode;
 import org.apache.http.client.methods.HttpGet;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -21,9 +19,9 @@ public class ReadServiceImpl {
     public static int id = 1;
     WriteSQL riteSQL;
 
-    public XingzhengCode ReadSheng(String url, BufferedWriter bw) throws IOException, InterruptedException {
-        System.out.println(url);
-        url = baseUrl + "index.html";
+    public XingzhengCode ReadSheng() throws IOException, InterruptedException {
+
+        String url = baseUrl + "index.html";
         String str = HttpClientOption.getContent(new HttpGet(url)).toUpperCase();
         String[] arrs = str.split("<A");
         //一级区域
@@ -52,9 +50,7 @@ public class ReadServiceImpl {
                 boolean write = riteSQL.Write(x);
                 System.out.println("是否打印sql：" + write);
                 id = id + 1;
-                ReadShi(urls, new BufferedWriter(new FileWriter("a")), x.getId());
-
-
+                ReadShi(urls, x.getId());
 
             }
 
@@ -63,7 +59,7 @@ public class ReadServiceImpl {
         return null;
     }
 
-    public XingzhengCode ReadShi(String url, BufferedWriter bw, int parentId) throws IOException, InterruptedException {
+    public XingzhengCode ReadShi(String url, int parentId) throws IOException, InterruptedException {
         String content = HttpClientOption.getContent(new HttpGet(baseUrl + url)).toUpperCase();
         //System.out.println(content);
         String[] citys = content.split("CITYTR");
@@ -91,7 +87,6 @@ public class ReadServiceImpl {
                     name = strs[si].substring(strs[si].indexOf("'>") + 2, strs[si].indexOf("</A>"));
                 }
 
-
             }
             x.setId(id);
             x.setRegionCode(cityCode);
@@ -108,13 +103,13 @@ public class ReadServiceImpl {
             boolean write = riteSQL.Write(x);
             System.out.println("是否打印sql：" + write);
             id = id + 1;
-            ReadQu(cityUrl.substring(0, cityUrl.indexOf("/") + 1), cityUrl,  new BufferedWriter(new FileWriter("a")),x.getId());
+            ReadQu(cityUrl.substring(0, cityUrl.indexOf("/") + 1), cityUrl, x.getId());
 
         }
         return null;
     }
 
-    public XingzhengCode ReadQu(String prix, String url, BufferedWriter bw,int parentId) throws IOException, InterruptedException {
+    public XingzhengCode ReadQu(String prix, String url, int parentId) throws IOException, InterruptedException {
         String content = HttpClientOption.getContent(new HttpGet(baseUrl + url)).toUpperCase();
         String[] citys = content.split("COUNTYTR");
         for (int i = 1; i < citys.length; i++) {

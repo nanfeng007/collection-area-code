@@ -18,12 +18,12 @@ public class WriteSQL {
 //            FileWriter fileWriter = new FileWriter(new File("c:/code.sql"));
 //            BufferedWriter bw = new BufferedWriter(fileWriter);
 
-            String sql = "INSERT INTO \"public\".\"t_region_copy1\"(\"id\", \"region_code\", \"region_name\", \"region_level\", \"parent_id\", \"pinyin\", \"jianpin\", \"status\", \"create_at\") VALUES" +
+            String sql = "INSERT INTO \"public\".\"t_region\"(\"id\", \"region_code\", \"region_name\", \"region_level\", \"parent_id\", \"pinyin\", \"jianpin\", \"status\", \"create_at\") VALUES" +
                     "('" + XCode.getId() + "', '" + XCode.getRegionCode() + "', '" + XCode.getRegionName() + "','" + XCode.getRegionLevel() + "','" +
                     XCode.getParentId() + "','" + XCode.getPinYin() + "','" + XCode.getJianPin() + "','" + XCode.getStatus() + "','" +
                     XCode.getCreateDate() + "'); \n";
 
-            Files.write(Paths.get("e:/code.sql"), sql.getBytes(), StandardOpenOption.APPEND);
+            Files.write(Paths.get("e:/code1.sql"), sql.getBytes(), StandardOpenOption.APPEND);
 
 //            bw.write(
 //                    "INSERT INTO " +
