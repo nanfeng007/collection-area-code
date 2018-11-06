@@ -1,16 +1,16 @@
+import com.baidu.EntCoordSyncJob;
+import com.scj.xingzhengquyu.dao.PingYinOtion;
 import com.scj.xingzhengquyu.service.impl.ReadServiceImpl;
 import org.junit.Test;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class Tests {
 
     @Test
-    public void tesgs() throws IOException, InterruptedException {
+    public void executeCode() throws IOException, InterruptedException {
         ReadServiceImpl readServiceImpl = new ReadServiceImpl();
-        readServiceImpl.ReadSheng("index.html", new BufferedWriter(new FileWriter("adfa")));
+        readServiceImpl.ReadSheng();
 
         //    readServiceImpl.ReadShi("11.HTML", new BufferedWriter(new FileWriter("a")), 1);
 ////
@@ -19,9 +19,15 @@ public class Tests {
 
     }
     @Test
-    public void test1(){
-        String s = "县";
-        System.out.println(s.length());
+    public void testMap(){
+        String job = EntCoordSyncJob.convertAddress("西安市市图书馆", "5Qm4cryDTnyq2aeYOG3SYhertAAyuer5");
+        System.out.println(job);
+    }
+    @Test
+    public void  testPinyin(){
+        String s = PingYinOtion.stringToPinyin("北京市");
+        System.out.println(s);
+
     }
 
 }

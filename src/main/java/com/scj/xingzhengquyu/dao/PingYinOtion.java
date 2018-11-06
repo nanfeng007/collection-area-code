@@ -27,7 +27,7 @@ public class PingYinOtion {
      * @return
      */
     public static String simplePinYin(String String) {
-        //String deleteLastChar = PingYinOtion.deleteLastChar(String);
+       // String deleteLastChar = PingYinOtion.deleteLastChar(String);
         String[] headByString = PinYin4jUtils.getHeadByString(String);
 
         return PinYin4jUtils.stringArrayToString(headByString);
@@ -42,7 +42,33 @@ public class PingYinOtion {
      */
     public static String deleteLastChar(String s) {
 
-        if (s.endsWith("自治区")) {
+        if (s.endsWith("省")) {
+            String ss = s.replace("省", "");
+            return ss;
+        }
+        if (s.endsWith("市")) {
+            String ss = s.replace("市", "");
+            return ss;
+        }
+        if (s.endsWith("县")) {
+            String ss = s.replace("县", "");
+            return ss;
+        }
+        if (s.endsWith("区")) {
+            String ss = s.replace("区", "");
+            return ss;
+        }
+        if (s.endsWith("盟")) {
+            String ss = s.replace("盟", "");
+            return ss;
+        }
+        if (s.endsWith("旗")) {
+            String ss = s.replace("旗", "");
+            return ss;
+        }
+
+        return s;
+       /* if (s.endsWith("自治区")) {
             String ss = s.replace("自治区", "");
             return ss;
         }
@@ -98,12 +124,12 @@ public class PingYinOtion {
             String ss = s.replace("园区", "");
             return ss;
         }
-        if (s.length() <= 2) {
+        if (s.length() == 1) {
             return s;
         }
 
         String substring = s.substring(0, s.length() - 1);
-        return substring;
+        return substring;*/
     }
 
 }

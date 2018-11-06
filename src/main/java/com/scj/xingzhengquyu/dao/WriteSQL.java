@@ -23,7 +23,7 @@ public class WriteSQL {
                     XCode.getParentId() + "','" + XCode.getPinYin() + "','" + XCode.getJianPin() + "','" + XCode.getStatus() + "','" +
                     XCode.getCreateDate() + "'); \n";
 
-            Files.write(Paths.get("e:/code1.sql"), sql.getBytes(), StandardOpenOption.APPEND);
+            Files.write(Paths.get("e:/area_code.sql"), sql.getBytes(), StandardOpenOption.APPEND);
 
 //            bw.write(
 //                    "INSERT INTO " +
